@@ -17,7 +17,8 @@ export default {
     },
     consultarUna: async (req, res, next) => {
         try {
-                const registro = await models.Incidencia.findOne({_id: req.query._id});
+                const registro = await models.Incidencia.findOne({_id: req.query._id})
+                .populate('usuario', {nombre: 1, apePat: 1});
                 if(!registro){
                     res.status(404).send({
                         message: 'La incidencia no existe'
@@ -35,7 +36,8 @@ export default {
     },
     listar: async (req, res, next) => {
         try {
-                const registro = await models.Incidencia.find({});
+                const registro = await models.Incidencia.find({})
+                .populate('responsable', {nombre: 1, apePat: 1}); // se hace referencia al campo 
                 res.status(200).json(registro);
         } catch (error) {
             res.status(500).send({
@@ -47,7 +49,7 @@ export default {
     },
     editar: async (req, res, next) => {
         try {
-                const registro = await models.Incidencia.findByIdAndUpdate({_id: req.body._id}, {tipo: req.body.tipo, fechaInicio: req.body.fechaInicio, fechaFin: req.body.FechaFin, descripcion: req.body.descripcion, nombreCliente: req.body.nombreCliente, prioridad: req.body.prioridad, medioAtencion: req.body.medioAtencion});
+                const registro = await models.Incidencia.findByIdAndUpdate({_id: req.body._id}, {codigo: req.body.codigo, responsable: req.body.responsable, tipo: req.body.tipo, fechaInicio: req.body.fechaInicio, fechaTermino: req.body.FechaTermino, descripcion: req.body.descripcion, nombreCliente: req.body.nombreCliente, prioridad: req.body.prioridad, medioAtencion: req.body.medioAtencion});
                 res.status(200).json(registro);
         } catch (error) {
             res.status(500).send({

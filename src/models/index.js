@@ -1,5 +1,7 @@
-import Incidencia from '../models/Indicendia';
+import Incidencia from './Indicendia';
+import Usuario from './Usuario';
 
 export default {
-    Incidencia
+    Incidencia,
+    Usuario
 }
