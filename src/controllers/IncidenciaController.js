@@ -1,10 +1,22 @@
 //const models = require('../models');
 import models from '../models';
 
+async function getNextSequenceValue(sequenceName){
+    var sequenceDocument = await models.Contador.findOneAndUpdate(
+       
+        { idCodigo: sequenceName }, {$inc: { sequence_value: 1 } }, {new: true }
+
+        );
+    return sequenceDocument.sequence_value;
+}
+
 export default {
 
     agregar: async (req, res, next) => {
+        const x = "SGD_FD_21_REQ_";
         try {
+            var m = await getNextSequenceValue("incidenciaid");
+            req.body.codigo = x + m;
                 const registro = await models.Incidencia.create(req.body);
                 res.status(200).json(registro);
         } catch (error) {
@@ -72,3 +84,4 @@ export default {
         }
     }
 }
+
