@@ -129,11 +129,7 @@ export default {
         let match = await bcrypt.compare(req.body.password, usuario.password);
         if (match) {
           //res.json('Password correcto');
-          let tokenReturn = await token.encode(
-            usuario._id,
-            usuario.rol,
-            usuario.email
-          );
+          let tokenReturn = await token.encode(usuario._id, usuario.rol, usuario.email);
           res.status(200).json({ usuario, tokenReturn });
         } else {
           res.status(404).send({

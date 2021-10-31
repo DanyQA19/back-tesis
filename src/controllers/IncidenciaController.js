@@ -61,7 +61,7 @@ export default {
     },
     editar: async (req, res, next) => {
         try {
-                const registro = await models.Incidencia.findByIdAndUpdate({_id: req.body._id}, {codigo: req.body.codigo, responsable: req.body.responsable, tipo: req.body.tipo, fechaInicio: req.body.fechaInicio, fechaTermino: req.body.FechaTermino, descripcion: req.body.descripcion, nombreCliente: req.body.nombreCliente, prioridad: req.body.prioridad, medioAtencion: req.body.medioAtencion});
+                const registro = await models.Incidencia.findByIdAndUpdate({_id: req.body._id}, {codigo: req.body.codigo, responsable: req.body.responsable, tipo: req.body.tipo, fechaInicio: req.body.fechaInicio, fechaTermino: req.body.fechaTermino, descripcion: req.body.descripcion, nombreCliente: req.body.nombreCliente, prioridad: req.body.prioridad, medioAtencion: req.body.medioAtencion});
                 res.status(200).json(registro);
         } catch (error) {
             res.status(500).send({

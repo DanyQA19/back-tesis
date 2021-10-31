@@ -8,7 +8,7 @@ export default {
             });
         }
         const response = await tokenService.decode(req.headers.token);
-        if(response.rol == 'Administrador' || response.rol == 'Gerente' || response.rol == 'Trabajador'){
+        if(response.rol == 'administrador' || response.rol == 'gerente' || response.rol == 'trabajador'){
             next();
         }else{
             return res.status(403).send({
@@ -23,7 +23,7 @@ export default {
             });
         }
         const response = await tokenService.decode(req.headers.token);
-        if(response.rol == 'Administrador'){
+        if(response.rol == 'administrador'){
             next();
         }else{
             return res.status(403).send({
@@ -38,7 +38,7 @@ export default {
             });
         }
         const response = await tokenService.decode(req.headers.token);
-        if(response.rol == 'Administrador' || response.rol == 'Gerente'){
+        if(response.rol == 'administrador' || response.rol == 'gerente'){
             next();
         }else{
             return res.status(403).send({
@@ -53,7 +53,7 @@ export default {
             });
         }
         const response = await tokenService.decode(req.headers.token);
-        if(response.rol == 'Administrador' || response.rol == 'Trabajador'){
+        if(response.rol == 'administrador' || response.rol == 'trabajador'){
             next();
         }else{
             return res.status(403).send({
