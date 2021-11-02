@@ -63,6 +63,7 @@ export default {
           dni: req.body.dni,
           email: req.body.email,
           password: req.body.password,
+          estado: req.body.estado,
         }
       );
       res.status(200).json(registro);

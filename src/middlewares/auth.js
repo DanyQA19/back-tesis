@@ -23,7 +23,7 @@ export default {
             });
         }
         const response = await tokenService.decode(req.headers.token);
-        if(response.rol == 'administrador'){
+        if(response.rol == 'administrador' || response.rol == 'trabajador'){ // tengo que agregar rol de trabajador para que no exista problema con el token
             next();
         }else{
             return res.status(403).send({

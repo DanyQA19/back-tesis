@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const incidenciaSchema = new Schema({
-  codigo: { type: String, default: "codigo"}, // SGD_FD_21_REQ_00004
+  codigo: { type: String}, // SGD_FD_21_REQ_00004
   responsable: { type: Schema.ObjectId, ref: "usuario" }, // se hace referencia al trabajador de soporte
   tipo: { type: String, required: true }, // SISTEMA DE GESTIÓN DOCUMENTAL o MÓDULO DE ATENCIÓN DE TRÁMITES
   fechaInicio: { type: Date, required: true }, // , default: Date.now
