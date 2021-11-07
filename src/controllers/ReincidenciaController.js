@@ -6,7 +6,6 @@ export default {
     
         try {
                 var x = await models.Reincidencia.countDocuments({incidencia: req.body.incidencia});
-                console.log(x);
                 if(x > 0){
                     req.body.replica = x + 1;
                 }
