@@ -49,7 +49,7 @@ export default {
     listar: async (req, res, next) => {
         try {
                 const registro = await models.Incidencia.find({})
-                .populate('responsable', {nombre: 1, apePat: 1}); // se hace referencia al campo 
+                .populate('responsable', {nombre: 1, apePat: 1}).sort({'createdAt': -1}); // se hace referencia al campo 
                 res.status(200).json(registro);
         } catch (error) {
             res.status(500).send({

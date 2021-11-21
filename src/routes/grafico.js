@@ -9,7 +9,7 @@ const router = routerx();
 //router.get('/listar', auth.verifyTrabajador, graficoController.listar);
 
 router.get('/enviarData', auth.verifyUsuario, graficoController.enviarData);
-router.get('/enviar', auth.verifyUsuario, graficoController.enviar);
+router.post('/enviar', auth.verifyUsuario, graficoController.enviar);
 //router.post('/enviar', graficoController.enviar);
 
 export default router;

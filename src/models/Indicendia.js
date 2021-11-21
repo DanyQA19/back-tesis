@@ -10,6 +10,7 @@ const incidenciaSchema = new Schema({
   nombreCliente: { type: String, maxlength: 30 },
   prioridad: { type: String, default: "Bajo" },
   medioAtencion: { type: String, default: "Correo electrónico" },
+  createdAt: {type: Date, default: Date.now}
 });
 
 const Incidencia = mongoose.model("incidencia", incidenciaSchema);

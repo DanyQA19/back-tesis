@@ -6,6 +6,7 @@ const reincidenciaSchema = new Schema({
   fechaInicio: { type: Date, required: true }, // , default: Date.now
   fechaTermino: { type: Date, required: true }, // se agrega al final
   descripcion: { type: String, maxlength: 255 },
+  createdAt: {type: Date, default: Date.now}
 });
 
 const Reincidencia = mongoose.model("reincidencia", reincidenciaSchema);
