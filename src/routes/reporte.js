@@ -5,8 +5,8 @@ import auth from "../middlewares/auth";
 const router = routerx();
 
 
-router.get('/filtrar1', reporteController.filtrar1);
-router.post('/filtrar2', reporteController.filtrar2);
+router.get('/filtrar1', auth.verifyUsuario, reporteController.filtrar1);
+router.post('/filtrar2', auth.verifyUsuario, reporteController.filtrar2);
 
 
 export default router;
